@@ -1,0 +1,2 @@
+import { portfolio } from '../data/portfolio'
+export function Footer() { return <footer><div className="container footer-inner"><div><strong>{portfolio.name}</strong><span>Built with React & TypeScript</span></div><div className="footer-links"><a href={portfolio.github} target="_blank" rel="noreferrer">GitHub</a><a href={portfolio.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a href={`mailto:${portfolio.email}`}>Email</a></div><small>© {new Date().getFullYear()} {portfolio.name}. All rights reserved.</small></div></footer> }

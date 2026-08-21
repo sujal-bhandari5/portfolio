@@ -1,0 +1,2 @@
+import { portfolio } from '../data/portfolio'
+export function About() { return <section id="about" className="section"><div className="container two-col"><div><p className="section-kicker">01 — About</p><h2>Curious by nature.<br/><em>Builder by choice.</em></h2></div><div className="prose"><p>{portfolio.about}</p><p>{portfolio.journey}</p><div className="info-grid"><div><span>Currently focused on</span><strong>{portfolio.focus}</strong></div><div><span>Long-term goal</span><strong>{portfolio.goal}</strong></div></div></div></div></section> }

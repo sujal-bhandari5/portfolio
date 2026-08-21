@@ -1,0 +1,2 @@
+import { experience } from '../data/experience'
+export function Experience() { return <section id="experience" className="section section-muted"><div className="container two-col"><div><p className="section-kicker">04 — Experience</p><h2>Learning through <em>practice.</em></h2></div><div className="timeline">{experience.map(item => <article className="timeline-item" key={item.role}><span className="timeline-dot"/><small>{item.date}</small><h3>{item.role}</h3><strong>{item.company}</strong><p>{item.description}</p></article>)}</div></div></section> }
