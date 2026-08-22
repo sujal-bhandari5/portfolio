@@ -11,7 +11,7 @@ const education = [
     url: 'https://kmcschool.edu.np/',
   },
   {
-    year: '2023 – 2024',
+    year: '2023 – 2025',
     title: 'Kathmandu Model College',
     text: 'Higher Secondary · 3.64 GPA',
     logo: kmcCollegeLogo,

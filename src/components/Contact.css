@@ -1,0 +1,182 @@
+.contact-section {
+  padding: 90px 8%;
+  background: #f8fafc;
+}
+
+.contact-container {
+  max-width: 1100px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 80px;
+}
+
+/* LEFT SIDE */
+
+.contact-text {
+  flex: 1;
+  max-width: 500px;
+}
+
+.contact-small-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: white;
+}
+
+.contact-text h2 {
+  margin: 12px 0 18px;
+
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+}
+
+.contact-text p {
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.7;
+  color: #64748b;
+}
+
+/* RIGHT SIDE */
+
+.contact-links {
+  width: 420px;
+}
+
+/* EMAIL */
+
+.email-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 18px 20px;
+  margin-bottom: 18px;
+
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.email-item:hover {
+  transform: translateY(-3px);
+  border-color: #2563eb;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.1);
+}
+
+.email-item img {
+  width: 42px;
+  height: 42px;
+
+  object-fit: cover;
+  border-radius: 9px;
+}
+
+.email-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.email-item span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+.email-item strong {
+  font-size: 15px;
+  color: #172554;
+}
+
+/* SOCIAL GRID */
+
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 15px;
+
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  text-decoration: none;
+
+  transition: 0.25s ease;
+}
+
+.social-item:hover {
+  transform: translateY(-4px);
+  border-color: #2563eb;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.1);
+}
+
+.social-item img {
+  width: 36px;
+  height: 36px;
+
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.social-item span {
+  font-size: 15px;
+  font-weight: 600;
+  color: #172554;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .contact-section {
+    padding: 70px 6%;
+  }
+
+  .contact-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 40px;
+  }
+
+  .contact-text {
+    max-width: none;
+    text-align: center;
+  }
+
+  .contact-text h2 {
+    font-size: 40px;
+  }
+
+  .contact-links {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+  }
+}
+
+@media (max-width: 450px) {
+  .social-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-text h2 {
+    font-size: 34px;
+  }
+}
