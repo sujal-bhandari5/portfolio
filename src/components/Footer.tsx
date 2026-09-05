@@ -1,40 +1,98 @@
+// src/components/Footer.tsx
+import { motion } from 'framer-motion';
+import { Code2, Terminal } from 'lucide-react';
+import { portfolio } from '../data/portfolio';
+
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="footer">
-      <div className="footer-container">
+    <footer className="relative bg-white dark:bg-slate-950 text-slate-600 dark:text-slate-400 py-8 border-t border-slate-200 dark:border-slate-800/50 overflow-hidden transition-colors duration-300">
+      <div className="container max-w-6xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-30px" }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left"
+        >
+          {/* Left Side: Brand & Full Intro text wrapped cleanly */}
+          <div className="flex flex-col items-center md:items-start gap-1.5 max-w-xl">
+            <a href="#home" className="text-lg font-bold tracking-tight text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              {portfolio.name}<span className="text-blue-500">.</span>
+            </a>
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+              {portfolio.intro}
+            </p>
+          </div>
 
-        <div className="footer-brand">
-          <h3>Sujal Bhandari</h3>
-          <p>Built with React & TypeScript</p>
-        </div>
+          {/* Right Side: Compact Social Icons */}
+          <div className="flex items-center gap-2.5">
+            {[
+              { 
+                name: 'GitHub', 
+                url: portfolio.github,
+                svg: (
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+                  </svg>
+                )
+              },
+              { 
+                name: 'LinkedIn', 
+                url: portfolio.linkedin,
+                svg: (
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  </svg>
+                )
+              },
+              { 
+                name: 'Email', 
+                url: `mailto:${portfolio.email}`,
+                svg: (
+                  <svg className="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                )
+              },
+            ].map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                className="p-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/50 transition-all duration-200"
+              >
+                {social.svg}
+              </a>
+            ))}
+          </div>
+        </motion.div>
 
-        <div className="footer-links">
-          <a
-            href="https://github.com/sujal-bhandari5"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
+        {/* Bottom Micro-Row */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="flex flex-col sm:flex-row justify-between items-center gap-3 mt-6 pt-5 border-t border-slate-100 dark:border-slate-900 text-[11px] text-slate-400 dark:text-slate-500"
+        >
+          <div>
+            &copy; {currentYear} {portfolio.name}. All rights reserved.
+          </div>
 
-          <a
-            href="https://www.linkedin.com/in/sujalbhandari/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            LinkedIn
-          </a>
-
-          <a href="mailto:YOUR_EMAIL">
-            Email
-          </a>
-        </div>
-
-      </div>
-
-      <div className="footer-bottom">
-        <span>© 2026 Sujal Bhandari</span>
-        <span>Built with React & TypeScript</span>
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1">
+              <Code2 className="w-3 h-3 text-cyan-500" /> React
+            </span>
+            <span>•</span>
+            <span className="flex items-center gap-1">
+              <Terminal className="w-3 h-3 text-blue-500" /> TypeScript
+            </span>
+          </div>
+        </motion.div>
       </div>
     </footer>
   );
